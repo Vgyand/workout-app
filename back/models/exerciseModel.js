@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
 
 const exerciseSchema = mongoose.Schema({
     name: { type: String, required: true },
@@ -7,7 +6,7 @@ const exerciseSchema = mongoose.Schema({
         type: Number,
         required: true,
     },
-    images: {
+    image: {
         type: String,
         required: true,
     }
