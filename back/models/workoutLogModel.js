@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { required } from "nodemon/lib/config";
+
 
 const { ObjectId } = mongoose.Schema
 
@@ -10,7 +10,7 @@ const workoutLogSchema = mongoose.Schema(
             ref: 'User',
             required: true
         },
-        workout: { type: ObjectId, ref: 'Workout', required: true },
+        workout: { type: ObjectId, ref: 'Workout', },
         completed: { type: Boolean, default: false },
 
     },

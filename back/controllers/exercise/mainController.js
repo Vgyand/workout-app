@@ -13,3 +13,5 @@ export const addNewExercise = asyncHandler(async (req, res) => {
     })
     res.json(exercise)
 })
+
+
