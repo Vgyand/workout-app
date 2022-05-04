@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-
+import mongoose from 'mongoose'
 
 const { ObjectId } = mongoose.Schema
 
@@ -8,18 +7,17 @@ const workoutLogSchema = mongoose.Schema(
         user: {
             type: ObjectId,
             ref: 'User',
-            required: true
+            required: true,
         },
-        workout: { type: ObjectId, ref: 'Workout', },
+        workout: { type: ObjectId, ref: 'Workout', required: true },
         completed: { type: Boolean, default: false },
-
     },
     {
         minimize: false,
-        timestamps: true
-    })
+        timestamps: true,
+    }
+)
 
+const WorkoutsLog = mongoose.model('WorkoutsLog', workoutLogSchema)
 
-const WorkoutLog = mongoose.model('WorkoutLog', workoutLogSchema)
-
-export default WorkoutLog
+export default WorkoutsLog
