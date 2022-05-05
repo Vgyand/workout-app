@@ -8,7 +8,6 @@ const exerciseSchema = mongoose.Schema({
     },
     imageId: {
         type: Number,
-
     }
 },
     {
