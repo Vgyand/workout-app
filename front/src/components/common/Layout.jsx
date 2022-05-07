@@ -4,9 +4,13 @@ import style from './Layout.module.sass'
 
 const Layout = ({ children }) => {
     return (
-        <div className={style.wrapper}>
+        <div className={style.wrapper} style={{
+            backgroundColor: 'orange'
+        }} >
             <Header />
-            {children}
+            <div>
+                {children}
+            </div>
         </div >
     )
 }
