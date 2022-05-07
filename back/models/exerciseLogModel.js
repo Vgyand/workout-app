@@ -9,10 +9,9 @@ const exerciseLogSchema = mongoose.Schema(
             ref: 'User',
             required: true
         },
-        workout: { type: ObjectId, ref: 'Workout' },
         exercise: { type: ObjectId, ref: 'Exercise', required: true },
         completed: { type: Boolean, default: false },
-        weight: { type: Number },
+        workoutLog: { type: ObjectId, ref: 'WorkoutLog', required: true },
         times: [{
             weight: { type: Number },
             repeat: { type: Number },

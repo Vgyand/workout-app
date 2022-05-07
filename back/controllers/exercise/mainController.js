@@ -40,3 +40,37 @@ export const updateExercise = asyncHandler(async (req, res) => {
 
     res.json(updatedExercise)
 })
+
+
+// @desc delete exercises
+// @route DELETE /api/exercises
+// @access Private
+
+
+
+export const deleteExercise = asyncHandler(async (req, res) => {
+    const { exerciseId } = req.body
+
+
+    const exercise = await Exercise.findById(exerciseId)
+
+    if (!exercise) {
+        res.status(404)
+        throw new Error('yproj ne naiden')
+    }
+
+    await exercise.remove()
+
+    res.json({ message: 'ypr ydaloeno' })
+})
+
+
+// @desc Get exercises
+// @route POST /api/exercises
+// @access Private
+
+export const getExercises = asyncHandler(async (req, res) => {
+    const exercises = await Exercise.find({})
+
+    res.json(exercises)
+})

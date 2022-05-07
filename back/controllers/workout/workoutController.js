@@ -28,6 +28,18 @@ export const getWorkout = asyncHandler(async (req, res) => {
 })
 
 
+// @desc Get new workout
+// @route Get /api/workouts/
+// @access Private
+
+export const getWorkouts = asyncHandler(async (req, res) => {
+    const workout = await Workout.findById(req.params.id).populate('exercises')
+
+
+    res.json(workout)
+})
+
+
 // @desc Update workout
 // @route PUT /api/workouts
 // @access Private
@@ -48,7 +60,29 @@ export const updateWorkout = asyncHandler(async (req, res) => {
     workout.exercises = exerciseIds
 
 
-    const updatedWokrout = await workout.save()
+    const updatedWorkout = await workout.save()
 
-    res.json(updatedWokrout)
+    res.json(updatedWorkout)
+})
+
+
+// @desc delete workout
+// @route DELETE /api/workouts
+// @access Private
+
+
+
+export const deleteWorkout = asyncHandler(async (req, res) => {
+    const { workoutId } = req.body
+
+    const workout = await Workout.findById(workoutId)
+
+    if (!workout) {
+        res.status(404)
+        throw new Error('trenya ne naiden')
+    }
+
+    await workout.remove()
+
+    res.json({ message: 'work ydaloeno' })
 })
