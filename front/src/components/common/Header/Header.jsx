@@ -18,11 +18,10 @@ const Header = ({ callback }) => {
                     <Back sx={{ fontSize: 52 }} />
                 </button>
                 :
-                <button type="button" className={style.headerBtn}>
+                <button type="button" className={style.headerBtn} onClick={() => nav('../auth')}>
                     <PersonSharpIcon sx={{ fontSize: 52 }} />
                 </button>
             }
-
             <Hamburger />
         </header>
     )

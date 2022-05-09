@@ -21,7 +21,7 @@ const NewWorkout = () => {
                 <h1>Create new workout</h1>
                 <form action="" onSubmit={handleSubmit}>
                     <Field type='text' placeholder={'Name'} value={name} onChange={e => setName(e.target.value)} /><br />
-                    <Link className={style.addExercise} to='new-exercise'>Add new exercise</Link>
+                    <Link className={style.addExercise} to='../new-exercise'>Add new exercise</Link>
                     <ReactSelect
                         classNamePrefix='select2-selection'
                         placeholder='Exercises...'

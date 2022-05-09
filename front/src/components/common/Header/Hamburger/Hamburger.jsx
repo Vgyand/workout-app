@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import MenuSharpIcon from '@mui/icons-material/MenuSharp';
 import MenuClose from '@mui/icons-material/Close'
 import { useState } from 'react';
@@ -22,7 +23,7 @@ const Hamburger = () => {
                         <Link to='/'>Workouts</Link>
                     </li>
                     <li>
-                        <Link to='/'>Create New</Link>
+                        <Link to='/new-workout'>Create New</Link>
                     </li>
                     <li>
                         <Link to='/'>Profile</Link>
