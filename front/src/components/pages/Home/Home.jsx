@@ -11,7 +11,6 @@ const Home = () => {
             <Button text="new" type={'main'} callback={() => navigate("../new-workout")} />
             <h1 className={style.heading}>EXCERCISE</h1>
             <Counters />
-
         </Layout>
     )
 }

@@ -13,7 +13,7 @@ const Hamburger = () => {
     return (
         <div className={style.wrapper}>
             <button type="button" onClick={() => setShow(!show)}>
-                {show ? <MenuSharpIcon className={style.headerBtn} sx={{ fontSize: 52 }} /> : <MenuClose className={style.headerBtn} sx={{ fontSize: 52 }} />}
+                {!show ? <MenuSharpIcon className={style.headerBtn} sx={{ fontSize: 52 }} /> : <MenuClose className={style.headerBtn} sx={{ fontSize: 52 }} />}
 
             </button>
             <nav className={`${style.menu} ${show ? style.show : ''}`}>
