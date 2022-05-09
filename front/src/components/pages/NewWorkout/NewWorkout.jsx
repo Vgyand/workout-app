@@ -5,6 +5,7 @@ import Field from '../../common/ui/Field/Field'
 import Button from "../../common/ui/Button/Button"
 import ReactSelect from 'react-select'
 import { optionColor } from './optionColor'
+import { Link } from 'react-router-dom'
 const NewWorkout = () => {
 
 
@@ -19,8 +20,8 @@ const NewWorkout = () => {
             <div className={style.wrapper}>
                 <h1>Create new workout</h1>
                 <form action="" onSubmit={handleSubmit}>
-                    <Field type='text' placeholder={'Name'} value={name} onChange={e => setName(e.target.value)} />
-                    {/*select */}
+                    <Field type='text' placeholder={'Name'} value={name} onChange={e => setName(e.target.value)} /><br />
+                    <Link className={style.addExercise} to='new-exercise'>Add new exercise</Link>
                     <ReactSelect
                         classNamePrefix='select2-selection'
                         placeholder='Exercises...'
