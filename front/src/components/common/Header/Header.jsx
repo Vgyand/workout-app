@@ -3,12 +3,15 @@ import PersonSharpIcon from '@mui/icons-material/PersonSharp';
 import Hamburger from './Hamburger/Hamburger';
 import Back from '@mui/icons-material/ArrowBack';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../hooks/useAuth';
 
 
-const Header = ({ callback }) => {
+const Header = () => {
 
     const location = useLocation()
     const nav = useNavigate()
+
+    const { isAuth } = useAuth()
 
     return (
         <header className={style.header}>
@@ -18,7 +21,7 @@ const Header = ({ callback }) => {
                     <Back sx={{ fontSize: 52 }} />
                 </button>
                 :
-                <button type="button" className={style.headerBtn} onClick={() => nav('../auth')}>
+                <button type="button" className={style.headerBtn} onClick={() => nav(isAuth ? '../profile' : '../auth')}>
                     <PersonSharpIcon sx={{ fontSize: 52 }} />
                 </button>
             }

@@ -8,8 +8,11 @@ import Alert from '../../common/ui/Alert/Alert'
 import { useMutation } from 'react-query'
 import { $api } from '../../../api/api'
 import Loader from '../../common/ui/Loader'
+import { useNavigate } from 'react-router-dom'
 
 const Auth = () => {
+    const nav = useNavigate()
+
     const [email, setEmail] = useState('')
     const [password, setPass] = useState('')
 
@@ -25,6 +28,10 @@ const Auth = () => {
         onSuccess(data) {
             localStorage.setItem('token', data.token)
             console.log(data)
+            setPass('')
+            setEmail('')
+            nav('/')
+
         }
     }
     )
