@@ -1,21 +1,23 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import MenuSharpIcon from '@mui/icons-material/MenuSharp';
 import MenuClose from '@mui/icons-material/Close'
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+
+import { Link, useNavigate } from 'react-router-dom';
 import style from './Hamburger.module.sass'
 import { useOutsideAlerter } from '../../../../hooks/useOutsideAlerter';
 import { useAuth } from '../../../../hooks/useAuth';
 
 const Hamburger = () => {
+    const nav = useNavigate()
 
     const { ref, isComponentVisible, setIsComponentVisible } = useOutsideAlerter(false)
 
     const { setIsAuth } = useAuth()
     const handleLogout = () => {
         localStorage.removeItem('token')
-        setIsAuth(true)
+        setIsAuth(false)
         setIsComponentVisible(false)
+        nav('../auth')
     }
     return (
         <div className={style.wrapper} ref={ref}>

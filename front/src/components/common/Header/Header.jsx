@@ -13,6 +13,7 @@ const Header = () => {
 
     const { isAuth } = useAuth()
 
+
     return (
         <header className={style.header}>
 
@@ -25,6 +26,7 @@ const Header = () => {
                     <PersonSharpIcon sx={{ fontSize: 52 }} />
                 </button>
             }
+            {isAuth ? 'auth' : 'not'}
             <Hamburger />
         </header>
     )
