@@ -4,7 +4,6 @@ import Layout from '../../common/Layout'
 import Field from '../../common/ui/Field/Field'
 import Button from "../../common/ui/Button/Button"
 import ReactSelect from 'react-select'
-import { optionColor } from './optionColor'
 import { Link } from 'react-router-dom'
 import { useMutation, useQuery } from "react-query";
 

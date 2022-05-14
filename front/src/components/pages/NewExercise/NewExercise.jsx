@@ -32,7 +32,7 @@ const NewExercise = () => {
         isLoading,
         error,
     } = useMutation(
-        'Create new exercide',
+        'Create new exercise',
         () =>
             $api({
                 url: '/exercises',
