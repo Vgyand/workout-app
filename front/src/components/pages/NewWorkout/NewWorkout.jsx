@@ -17,14 +17,15 @@ const NewWorkout = () => {
     const [name, setName] = useState('')
     const [exercisesCurrent, setExercisesCurrent] = useState([])
 
-
-    const { data, isSuccess } = useQuery('home page counters', () =>
-        $api({
-            url: '/exercises',
-        }),
+    const { data, isSuccess } = useQuery(
+        'list exercises',
+        () =>
+            $api({
+                url: '/exercises',
+            }),
         {
-            refetchOnWindowFocus: false
-        },
+            refetchOnWindowFocus: false,
+        }
     )
     const {
         mutate,
@@ -64,7 +65,7 @@ const NewWorkout = () => {
                 <form action="" onSubmit={handleSubmit}>
                     <Field type='text' placeholder={'Name'} value={name} onChange={e => setName(e.target.value)} /><br />
                     <Link className={style.addExercise} to='../new-exercise'>Add new exercise</Link>
-                    {isSuccess && data &&
+                    {isSuccess && data && (
                         <ReactSelect
                             classNamePrefix='select2-selection'
                             placeholder='Exercises...'
@@ -75,11 +76,10 @@ const NewWorkout = () => {
                             }))}
                             value={exercisesCurrent}
                             onChange={setExercisesCurrent}
-                            theme={theme => optionColor(theme)}
                             isMulti={true}
                         />
-                    }
-                    <Button text='Create' callback={() => (console.log('cal'))} />
+                    )}
+                    <Button text='Create' callback={() => { }} />
                 </form>
             </div>
         </Layout >
