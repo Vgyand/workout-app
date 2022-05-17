@@ -28,7 +28,7 @@ const Hamburger = () => {
             <nav className={`${style.menu} ${isComponentVisible ? style.show : ''}`}>
                 <ul>
                     <li>
-                        <Link to='/'>Workouts</Link>
+                        <Link to='/workouts'>Workouts</Link>
                     </li>
                     <li>
                         <Link to='/new-workout'>Create New</Link>
