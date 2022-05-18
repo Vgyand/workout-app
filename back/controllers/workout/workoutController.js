@@ -28,17 +28,15 @@ export const getWorkout = asyncHandler(async (req, res) => {
 })
 
 
-// @desc Get new workout
+// @desc Get new workouts
 // @route Get /api/workouts/
 // @access Private
 
 export const getWorkouts = asyncHandler(async (req, res) => {
-    const workout = await Workout.findById(req.params.id).populate('exercises')
+    const workouts = await Workout.find({}).populate('exercises')
 
-
-    res.json(workout)
+    res.json(workouts)
 })
-
 
 // @desc Update workout
 // @route PUT /api/workouts

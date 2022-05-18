@@ -25,11 +25,14 @@ export const getUserProfile = asyncHandler(async (req, res) => {
 
     const minutes = Math.ceil(countExerciseTimesCompleted * 2.3)
 
-    const workout = await WorkoutsLog.find({ user: user._id, completed: true }).countDocuments
+    const workouts = await WorkoutsLog.find({
+        user: user._id,
+        completed: true,
+    }).countDocuments()
 
 
-
+    console.log(workouts)
     res.json({
-        ...user, minutes, workout, kgs
+        ...user, minutes, workouts, kgs
     })
 })

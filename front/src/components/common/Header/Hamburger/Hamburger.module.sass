@@ -1,0 +1,28 @@
+
+.wrapper
+    position: relative
+    .menu
+        position: absolute
+        top: calc(100% + 14px)
+        right: 0px
+        color: black
+        padding: 10px 12px
+        font-size: 18px
+        min-width: 100px
+        background-color: black
+        color: orange
+        display: none
+        
+        &.show
+            display: block
+        >ul
+            list-style: none
+            padding-left: 15px
+            a
+                color: orange
+                text-decoration: none
+                transition: 0.2s
+        a:hover, a.active
+            color: red
+            margin: 4px 0
+
