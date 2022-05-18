@@ -28,7 +28,7 @@ export const getWorkout = asyncHandler(async (req, res) => {
 })
 
 
-// @desc Get new workout
+// @desc Get new workouts
 // @route Get /api/workouts/
 // @access Private
 

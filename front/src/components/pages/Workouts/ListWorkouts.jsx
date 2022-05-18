@@ -1,9 +1,9 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useMutation, useQuery } from 'react-query'
-import Loader from '../../ui/Loader'
+import Loader from '../../common/ui/Loader'
 import { $api } from '../../../api/api'
 import Layout from '../../common/Layout'
-import Alert from '../../ui/Alert/Alert'
+import Alert from '../../common/ui/Alert/Alert'
 
 
 const ListWorkouts = () => {
@@ -40,9 +40,11 @@ const ListWorkouts = () => {
 		}
 	)
 
+	console.log(data)
+
 	return (
-		<>
-			<Layout />
+		<Layout>
+
 			<div>
 				{error && <Alert type='error' text={error} />}
 				{isSuccessMutate && <Alert text='Workout log created' />}
@@ -50,17 +52,13 @@ const ListWorkouts = () => {
 				{isSuccess && (
 					<div>
 						{data.map((workout, idx) => (
-							<div key={`workout ${idx}`}>
-								<button
-									aria-label='Create new workout'
-									onClick={() =>
-										createWorkoutLog({
-											workoutId: workout._id,
-										})
-									}
-								>
-									<span>{workout.name}</span>
-								</button>
+							<div key={idx}>
+								{console.log(workout)}
+								<Link to={`/workouts/${workout._id}`}>
+									<span>{workout.name
+
+									}</span>
+								</Link>
 							</div>
 						))}
 					</div>
@@ -69,7 +67,7 @@ const ListWorkouts = () => {
 					<Alert type='warning' text='Workouts not found' />
 				)}
 			</div>
-		</>
+		</Layout>
 	)
 }
 
