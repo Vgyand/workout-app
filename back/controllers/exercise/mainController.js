@@ -66,11 +66,25 @@ export const deleteExercise = asyncHandler(async (req, res) => {
 
 
 // @desc Get exercises
-// @route POST /api/exercises
+// @route get /api/exercises
 // @access Private
 
 export const getExercises = asyncHandler(async (req, res) => {
     const exercises = await Exercise.find({})
 
     res.json(exercises)
+})
+
+
+// @desc Get exercises
+// @route get /api/exercises/:id
+// @access Private
+
+export const getSingleExercises = asyncHandler(async (req, res) => {
+    const exercise = await Exercise.find({ name: req.params.id })
+
+    const name = exercise[0].name
+    const times = exercise[0].times
+
+    res.json({ name, times })
 })

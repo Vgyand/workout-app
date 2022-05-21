@@ -11,7 +11,7 @@ import { reBuildTimes } from "../../../helpers/exerciseLog.js"
 
 
 export const getExerciseLog = asyncHandler(async (req, res) => {
-    const exerciseLog = await ExerciseLog.findById(req.params.id).populate('exercise', 'name imageId').lean()
+    const exerciseLog = await ExerciseLog.findById(req.params.id).populate('exercise').lean()
 
     if (!exerciseLog) {
         res.status(404)
@@ -31,5 +31,5 @@ export const getExerciseLog = asyncHandler(async (req, res) => {
         ...exerciseLog,
         times: newTimes
     })
-
 })
+

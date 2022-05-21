@@ -5,6 +5,7 @@ import NewWorkout from './components/pages/NewWorkout/NewWorkout'
 import Profile from './components/pages/Profile/Profile'
 import SingleWorkout from './components/pages/Workouts/SingleWorkout'
 import ListWorkouts from './components/pages/Workouts/ListWorkouts'
+import SingleExercise from './components/pages/Exercises/SingleExercise'
 
 export const routes = [
     {
@@ -47,6 +48,12 @@ export const routes = [
         path: '/workouts',
         exact: false,
         component: <ListWorkouts />,
+        auth: true,
+    },
+    {
+        path: '/exercises/:id',
+        exact: false,
+        component: <SingleExercise />,
         auth: true,
     },
 ]

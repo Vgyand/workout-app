@@ -20,10 +20,12 @@ export const createNewExerciseLog = asyncHandler(async (req, res) => {
         })
     }
 
+
     const exerciseLog = await ExerciseLog.create({
         user: req.user._id,
         exercise: exerciseId,
-        times: timesArray
+        times: timesArray,
     })
+    console.log(exerciseLog)
     res.json(exerciseLog)
 })

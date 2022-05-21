@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useMutation, useQuery } from 'react-query'
 import Alert from '../../common/ui/Alert/Alert'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import style from './SingleWorkout.module.sass'
 import { $api } from '../../../api/api'
 import { useParams } from 'react-router-dom'
@@ -35,7 +35,6 @@ const SingleWorkout = () => {
 		}
 	)
 
-	console.log(data)
 	useEffect(() => {
 		if (
 			isSuccess &&
@@ -74,12 +73,9 @@ const SingleWorkout = () => {
 								return (
 									<div key={`ex log ${idx}`} >
 										<div>
-											<button
-												onClick={() => nav(`/exercise/${exLog._id}`)}
-												className={style.exerciseBtn}
-											>
+											<Link to={`/exercises/${exLog.name}`}>
 												<span>{exLog.name}</span>
-											</button>
+											</Link>
 										</div>
 										{idx % 2 !== 0 && idx !== data.exercises.length - 1 && (
 											<div></div>

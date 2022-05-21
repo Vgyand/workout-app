@@ -40,8 +40,6 @@ const ListWorkouts = () => {
 		}
 	)
 
-	console.log(data)
-
 	return (
 		<Layout>
 
@@ -53,11 +51,8 @@ const ListWorkouts = () => {
 					<div>
 						{data.map((workout, idx) => (
 							<div key={idx}>
-								{console.log(workout)}
 								<Link to={`/workouts/${workout._id}`}>
-									<span>{workout.name
-
-									}</span>
+									<span>{workout.name}</span>
 								</Link>
 							</div>
 						))}
