@@ -82,7 +82,9 @@ export const getExercises = asyncHandler(async (req, res) => {
 
 export const getSingleExercises = asyncHandler(async (req, res) => {
     const exercise = await Exercise.find({ name: req.params.id })
-    console.log(req.params.id)
 
-    res.json(exercise)
+    const name = exercise[0].name
+    const times = exercise[0].times
+
+    res.json({ name, times })
 })
